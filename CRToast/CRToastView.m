@@ -18,7 +18,7 @@ static CGFloat const kCRStatusBarViewNoImageRightContentInset = 10;
 // vertically under the status bar. This adjustment is used to correct the frame height when centering
 // content under the status bar.
 
-static CGFloat const CRStatusBarViewUnderStatusBarYOffsetAdjustment = -5;
+static CGFloat const CRStatusBarViewUnderStatusBarYOffsetAdjustment = 0;
 
 static CGFloat CRImageViewFrameXOffsetForAlignment(CRToastAccessoryViewAlignment alignment, CGFloat preferredPadding, CGSize contentSize) {
     CGFloat imageSize = contentSize.height;
