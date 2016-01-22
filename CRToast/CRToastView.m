@@ -170,11 +170,12 @@ static CGFloat CRCenterXForActivityIndicatorWithAlignment(CRToastAccessoryViewAl
                                                                   self.toast.showActivityIndicator,
                                                                   self.toast.activityViewAlignment);
     // Custom padding offset added by Hathway
-    x += 2*preferredPadding;
+    CGFloat customPad = 2*preferredPadding;
+    x += customPad;
     if (self.toast.subtitleText == nil) {
         self.label.frame = CGRectMake(x,
                                       statusBarYOffset,
-                                      width,
+                                      width-(2*customPad),
                                       CGRectGetHeight(contentFrame));
     } else {
         CGFloat height = MIN([self.toast.text boundingRectWithSize:CGSizeMake(width, MAXFLOAT)
@@ -193,13 +194,13 @@ static CGFloat CRCenterXForActivityIndicatorWithAlignment(CRToastAccessoryViewAl
         
         self.label.frame = CGRectMake(x,
                                       offset+statusBarYOffset,
-                                      CGRectGetWidth(contentFrame)-x-kCRStatusBarViewNoImageRightContentInset,
+                                      CGRectGetWidth(contentFrame)-x-kCRStatusBarViewNoImageRightContentInset-customPad,
                                       height);
         
         
         self.subtitleLabel.frame = CGRectMake(x,
                                               height+offset+statusBarYOffset,
-                                              CGRectGetWidth(contentFrame)-x-kCRStatusBarViewNoImageRightContentInset,
+                                              CGRectGetWidth(contentFrame)-x-kCRStatusBarViewNoImageRightContentInset-customPad,
                                               subtitleHeight);
     }
     
@@ -273,6 +274,7 @@ static CGFloat CRCenterXForActivityIndicatorWithAlignment(CRToastAccessoryViewAl
     _label.textColor = toast.textColor;
     _label.textAlignment = toast.textAlignment;
     _label.numberOfLines = toast.textMaxNumberOfLines;
+    _label.lineBreakMode = NSLineBreakByTruncatingTail;
     _label.shadowOffset = toast.textShadowOffset;
     _label.shadowColor = toast.textShadowColor;
     if (toast.subtitleText != nil) {
