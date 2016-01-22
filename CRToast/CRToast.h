@@ -15,3 +15,4 @@ FOUNDATION_EXPORT const unsigned char CRToastVersionString[];
 
 #import <CRToast/CRToastConfig.h>
 #import <CRToast/CRToastManager.h>
+#import <CRToast/CRToastLayoutHelpers.h>
