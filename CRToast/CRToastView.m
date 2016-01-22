@@ -169,7 +169,8 @@ static CGFloat CRCenterXForActivityIndicatorWithAlignment(CRToastAccessoryViewAl
                                                                   self.toast.imageAlignment,
                                                                   self.toast.showActivityIndicator,
                                                                   self.toast.activityViewAlignment);
-    
+    // Custom padding offset added by Hathway
+    x += 2*preferredPadding;
     if (self.toast.subtitleText == nil) {
         self.label.frame = CGRectMake(x,
                                       statusBarYOffset,
